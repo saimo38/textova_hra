@@ -2,13 +2,11 @@ public class Player {
 
     private String name;
     private Inventory inventory;
-    private int health;
     private Location currentLocation;
 
-    public Player(String name, Inventory inventory, int health, Location currentLocation) {
+    public Player(String name, Inventory inventory, Location currentLocation) {
         this.name = name;
         this.inventory = inventory;
-        this.health = health;
         this.currentLocation = currentLocation;
     }
 
@@ -26,14 +24,6 @@ public class Player {
 
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
     }
 
     public Location getCurrentLocation() {

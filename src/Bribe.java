@@ -1,11 +1,11 @@
-public class End implements Command{
+public class Bribe implements Command{
     @Override
     public String execute() {
-        return "Konec hry";
+        return "";
     }
 
     @Override
     public boolean exit() {
-        return true;
+        return false;
     }
 }

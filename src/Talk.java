@@ -1,6 +1,6 @@
 public class Talk implements Command {
 
-    private Character character;
+    private Charakter character;
 
     @Override
     public String execute() {

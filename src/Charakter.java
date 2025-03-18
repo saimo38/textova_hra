@@ -1,11 +1,22 @@
-public class Character {
+public class Charakter {
 
     private String name;
     private String role;
+    private int locationId;
 
-    public Character(String name, String role) {
+    public Charakter(String name, String role) {
         this.name = name;
         this.role = role;
+    }
+
+    public Charakter(){}
+
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
+    }
+
+    public int getLocationId() {
+        return locationId;
     }
 
     public String getName() {

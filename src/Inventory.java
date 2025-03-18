@@ -5,30 +5,33 @@ public class Inventory implements Command {
     private ArrayList<Item> items;
     private int capacity;
 
-    public Inventory(ArrayList<Item> items, int capacity) {
-        this.items = items;
+    public Inventory(int capacity) {
+        this.items = new ArrayList<>();
         this.capacity = capacity;
     }
 
-    public ArrayList<Item> getItems() {
-        return items;
+    public boolean isFull() {
+        return items.size() >= capacity;
     }
 
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void addItem(Item item) {
+        if (items.size() < capacity) {
+            items.add(item);
+        } else {
+            System.out.println("Inventář je plný!");
+        }
     }
 
     @Override
     public String execute() {
-        return "";
+        if (items.isEmpty()) {
+            return "Inventář je prázdný.";
+        }
+        StringBuilder sb = new StringBuilder("Tvůj inventář:\n");
+        for (Item item : items) {
+            sb.append("- ").append(item.getName()).append(": ").append(item.getDescription()).append("\n");
+        }
+        return sb.toString();
     }
 
     @Override
