@@ -7,16 +7,19 @@ public class Console {
     private Scanner sc = new Scanner(System.in);
     private WorldMap m = new WorldMap();
     private Inventory i = new Inventory(2);
-    private End e = new End();
-    private Player p = new Player("Eric", i, m.getCurrentLocation(m.getStart()));
 
     public void inicialization(){
-        map.put("goto", new GoTo(m));
+        Player p = new Player("Eldric", i, m.getCurrentLocation(m.getStart()));
+        map.put("goto", new GoTo(m, p));
         map.put("help", new Help());
-        //map.put("pickup", new PickUp());
+        map.put("pickup", new PickUp(p));
         map.put("inventory", i);
         map.put("hint", new Hint());
-        map.put("end", new End());
+        map.put("end", new End(this));
+        map.put("explore", new Explore(p));
+        map.put("putdown", new PutDown(p));
+        map.put("talk", new Talk(p));
+        map.put("bribe", new Bribe(m, p));
     }
 
     public void run (){
@@ -26,14 +29,17 @@ public class Console {
         command = command.toLowerCase();
         if(map.containsKey(command)){
             System.out.println(">> "+ map.get(command).execute());
+            if (map.get(command).exit()){
+                exit = true;
+            }
         }else{
             System.out.println(">> Wrong command");
         }
     }
 
     public void start(){
-        inicialization();
         m.loadMap();
+        inicialization();
         loadItems();
         loadCharacters();
         try {

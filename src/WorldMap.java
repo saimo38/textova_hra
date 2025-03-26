@@ -10,7 +10,6 @@ public class WorldMap {
     private int start = 3;
     private int currentPosition = start;
 
-
     public boolean loadMap() {
         try (BufferedReader br = new BufferedReader(new FileReader("mapa.txt"))) {
             String line;

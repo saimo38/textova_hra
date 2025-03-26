@@ -6,6 +6,7 @@ public class Location {
     private int id;
     private ArrayList<Integer> locations;
     private boolean locked;
+    private boolean unlockedWithoutTorch;
     private ArrayList<Item> items;
     private ArrayList<Charakter> characters;
 
@@ -17,6 +18,7 @@ public class Location {
         this.name = name;
         this.locations = locations;
         this.locked = locked;
+        this.unlockedWithoutTorch = false;
         this.items = new ArrayList<>();
         this.characters = new ArrayList<>();
     }
@@ -49,8 +51,24 @@ public class Location {
         return locations;
     }
 
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
+
     public boolean isLocked() {
         return locked;
+    }
+
+    public boolean isUnlockedWithoutTorch() {
+        return unlockedWithoutTorch;
+    }
+
+    public void setUnlockedWithoutTorch(boolean unlockedWithoutTorch) {
+        this.unlockedWithoutTorch = unlockedWithoutTorch;
+    }
+
+    public ArrayList<Charakter> getCharacters() {
+        return characters;
     }
 
     @Override
@@ -60,7 +78,9 @@ public class Location {
                 ", id=" + id +
                 ", locations=" + locations +
                 ", locked=" + locked +
+                ", unlockedWithoutTorch=" + unlockedWithoutTorch +
                 ", items=" + items +
+                ", characters=" + characters +
                 '}';
     }
 }

@@ -1,2 +1,4 @@
-7,Písmo svaté,Může pomoci získat důvěru mnicha
+1,Písmo svaté,Může pomoci získat důvěru mnicha
 1,Železný hřebík,Lze použít k vypáčení zámku nebo jako improvizovanou zbraň
+7,Měšec zlaťáků,Lze použít k podplacení strážců
+2,Pochodeň,Slouží k osvětlení okolí

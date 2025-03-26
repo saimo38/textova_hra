@@ -1,16 +1,42 @@
+import java.util.Scanner;
+
 public class PutDown implements Command{
 
-    private Item item;
-    private Inventory inventory;
+    private Scanner sc = new Scanner(System.in);
+    private Player player;
 
-    public PutDown(Item item, Inventory inventory) {
-        this.item = item;
-        this.inventory = inventory;
+    public PutDown(Player player) {
+        this.player = player;
     }
 
     @Override
     public String execute() {
-        return "";
+        Inventory inventory = player.getInventory();
+        Location currentLocation = player.getCurrentLocation();
+
+        if (inventory.isEmpty()) {
+            return "Tvůj inventář je prázdný.";
+        }
+
+        System.out.println("Tvůj inventář:");
+        for (int i = 0; i < inventory.getItems().size(); i++) {
+            System.out.println((i + 1) + ": " + inventory.getItems().get(i).getName());
+        }
+        System.out.print("Zadej číslo předmětu, který chceš položit: ");
+
+        try {
+            int input = sc.nextInt() - 1;
+            Item item = inventory.removeItem(input);
+            if (item != null) {
+                currentLocation.addItem(item);
+                return "Položil jsi " + item.getName();
+            } else {
+                return "Neplatný výběr.";
+            }
+        } catch (Exception e) {
+            sc.nextLine();
+            return "Neplatný vstup.";
+        }
     }
 
     @Override

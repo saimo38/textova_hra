@@ -14,6 +14,10 @@ public class Inventory implements Command {
         return items.size() >= capacity;
     }
 
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+
     public void addItem(Item item) {
         if (items.size() < capacity) {
             items.add(item);
@@ -22,14 +26,25 @@ public class Inventory implements Command {
         }
     }
 
+    public Item removeItem(int index) {
+        if (index >= 0 && index < items.size()) {
+            return items.remove(index);
+        }
+        return null;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
     @Override
     public String execute() {
         if (items.isEmpty()) {
             return "Inventář je prázdný.";
         }
-        StringBuilder sb = new StringBuilder("Tvůj inventář:\n");
+        StringBuilder sb = new StringBuilder("Tvůj inventář:");
         for (Item item : items) {
-            sb.append("- ").append(item.getName()).append(": ").append(item.getDescription()).append("\n");
+            sb.append("\n- ").append(item.getName()).append(": ");
         }
         return sb.toString();
     }
