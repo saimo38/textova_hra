@@ -2,7 +2,7 @@
 2,Skrys,3
 3,Zalar,1,2,4,6
 4,Hlavni chodba,1,3,5,7,locked
-5,Straznice,4,locked
+5,Straznice,4
 6,Stoka,3,7,
 7,Kobka s mnichem,4,6,8
 8,Tajna chodba,7,locked

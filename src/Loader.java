@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Loader {
+    /**
+     * Načte itemy ze souboru.
+     * @param path
+     * @return vrátí seznam itemů
+     */
     public static ArrayList<Item> loadItems(String path) {
         ArrayList<Item> items = new ArrayList<>();
 
@@ -27,6 +32,12 @@ public class Loader {
 
         return items;
     }
+
+    /**
+     * Načte charaktery ze souboru.
+     * @param path
+     * @return vrátí seznam charakterů
+     */
     public static ArrayList<Charakter> loadCharacters(String path) {
         ArrayList<Charakter> characters = new ArrayList<>();
 

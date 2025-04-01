@@ -5,6 +5,10 @@ public class End implements Command{
         this.console = console;
     }
 
+    /**
+     * Příkaz end ukončuje hru.
+     * @return vrátí oznámení o konci hry
+     */
     @Override
     public String execute() {
         return "Konec hry";

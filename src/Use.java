@@ -9,6 +9,10 @@ public class Use implements Command {
         this.player = player;
     }
 
+    /**
+     * Příkaz use umožňuje hráči použít item.
+     * @return vrátí informaci, jestli příkaz bylo možné uskutečnit
+     */
     @Override
     public String execute() {
         Inventory inventory = player.getInventory();

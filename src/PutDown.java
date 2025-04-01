@@ -9,6 +9,10 @@ public class PutDown implements Command{
         this.player = player;
     }
 
+    /**
+     * Příkaz putdown hráči umožňuje položit item.
+     * @return vrátí informaci, jestli příkaz bylo možné uskutečnit
+     */
     @Override
     public String execute() {
         Inventory inventory = player.getInventory();

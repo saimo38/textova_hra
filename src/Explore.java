@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Explore implements Command {
 
@@ -9,6 +8,10 @@ public class Explore implements Command {
         this.player = player;
     }
 
+    /**
+     * Příkaz explore hráči vypíše všechny charaktery a itemy, které se v místnosti nachází.
+     * @return vrátí informace o itemech a charakterech v místnosti
+     */
     @Override
     public String execute() {
         Location currentLocation = player.getCurrentLocation();

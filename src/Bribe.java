@@ -13,6 +13,12 @@ public class Bribe implements Command {
         this.player = player;
     }
 
+    /**
+     * Příkaz bribe nejdříve kontroluje, jestli má hráč potřebný předmět, následně zajistí 50% šanci na úspěch
+     * podplacení stráže.
+     * @return zpráva o výsledku pokusu o podplacení
+     */
+
     @Override
     public String execute() {
         Inventory inventory = player.getInventory();
@@ -49,7 +55,7 @@ public class Bribe implements Command {
             Location newLocation = world.getWorld().get(ESCAPE_LOCATION_ID);
             world.setCurrentPosition(ESCAPE_LOCATION_ID);
             player.setCurrentLocation(newLocation);
-            return "Podplácení bylo úspěšné! Stráž tě pustila dál do " + newLocation.getName();
+            return "Podplácení bylo úspěšné! Strážce tě pustil dál do " + newLocation.getName();
         } else {
             return "Strážce úplatek odmítl a zavolal posily! Měl bys být opatrnější...";
         }

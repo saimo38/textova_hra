@@ -11,6 +11,10 @@ public class PickUp implements Command{
         this.player = player;
     }
 
+    /**
+     * Příkaz pickup hráči umožňuje sebrat item.
+     * @return vrátí informaci, jestli příkaz bylo možné uskutečnit
+     */
     @Override
     public String execute() {
         Location currentLocation = player.getCurrentLocation();

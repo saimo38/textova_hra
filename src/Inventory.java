@@ -18,6 +18,10 @@ public class Inventory implements Command {
         return items.isEmpty();
     }
 
+    /**
+     * Přidá item do inventáře.
+     * @param item
+     */
     public void addItem(Item item) {
         if (items.size() < capacity) {
             items.add(item);
@@ -26,6 +30,11 @@ public class Inventory implements Command {
         }
     }
 
+    /**
+     * Odebere item z inventáře.
+     * @param index
+     * @return
+     */
     public Item removeItem(int index) {
         if (index >= 0 && index < items.size()) {
             return items.remove(index);
@@ -37,6 +46,10 @@ public class Inventory implements Command {
         return items;
     }
 
+    /**
+     * Příkaz inventory vypíše obsah inventáře.
+     * @return vrátí obsah inventáře
+     */
     @Override
     public String execute() {
         if (items.isEmpty()) {

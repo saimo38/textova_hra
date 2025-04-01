@@ -1,6 +1,10 @@
 public class Help implements Command{
     private Console console;
 
+    /**
+     * Příkaz help vypíše všechny dostupné příkazy.
+     * @return vrátí seznam příkazů
+     */
     @Override
     public String execute() {
         return "Seznam prikazu:\n" +

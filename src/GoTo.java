@@ -3,8 +3,6 @@ import java.util.Scanner;
 public class GoTo implements Command {
 
     private Scanner sc = new Scanner(System.in);
-    private Location currentLocation = new Location();
-    private Location newLocation = new Location();
     private WorldMap world;
     private Player player;
 
@@ -12,6 +10,12 @@ public class GoTo implements Command {
         this.world = world;
         this.player = player;
     }
+
+    /**
+     * Příkaz goto umožňuje hráči změnu lokace, zároveň také zabraňuje vchodu do zamčených lokací a zajišťuje jejich
+     * odemknutí.
+     * @return vrátí informaci, jestli příkaz bylo možné uskutečnit nebo ne
+     */
 
     @Override
     public String execute() {
@@ -72,6 +76,11 @@ public class GoTo implements Command {
                 }
             }
 
+            if (targetID == 5) {
+                System.out.println("Byl jsi dopaden strážemi! Hra končí.");
+                System.exit(0);
+            }
+
             // Přesun do nové lokace
             if (currentLocation.getLocations().contains(targetID)) {
                 world.setCurrentPosition(targetID);
@@ -86,9 +95,9 @@ public class GoTo implements Command {
             }
 
         } catch (Exception e) {
-            System.out.println("Zadal jsi špatný input.");
+            sc.nextLine();
+            return "Zadal jsi špatný input.";
         }
-        return null;
     }
 
     @Override

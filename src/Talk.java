@@ -10,6 +10,10 @@ public class Talk implements Command {
         this.player = player;
     }
 
+    /**
+     * Příkaz talk umožňuje uživateli mluvit s postavami.
+     * @return vrátí informaci, jestli příkaz bylo možné uskutečnit
+     */
     @Override
     public String execute() {
         Location currentLocation = player.getCurrentLocation();
