@@ -1,8 +1,0 @@
-1,Zalar,
-2,Skrys,
-3,Mucirna
-4,HlavniChodba
-5,Stoka
-6,KobkaSMnichem
-7,Straznice
-8,TajnaChodba

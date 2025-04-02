@@ -42,6 +42,7 @@ public class Console {
         inicialization();
         loadItems();
         loadCharacters();
+        System.out.println(map.get("help").execute());
         try {
             do {
                 run();

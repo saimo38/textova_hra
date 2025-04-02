@@ -1,6 +1,4 @@
 public class Help implements Command{
-    private Console console;
-
     /**
      * Příkaz help vypíše všechny dostupné příkazy.
      * @return vrátí seznam příkazů
@@ -8,8 +6,16 @@ public class Help implements Command{
     @Override
     public String execute() {
         return "Seznam prikazu:\n" +
-                "bribe\n" + "end\n" + "explore\n" + "goto\n" + "help\n" + "hint\n" + "inventory\n" + "pickup\n" +
-                "putdown\n" + "talk";
+                "bribe - Umožňuje uplatit strážce a odemknout tak hlavní chodbu\n" +
+                "end - Ukončí program\n" +
+                "explore - Vypíše seznam postav a itemů dostupných v dané místnosti\n" +
+                "goto - Umožňuje přechod mezi jednotlivými místnostmi\n" +
+                "help - Vypíše seznam dostupných příkazů\n" +
+                "hint - Vypíše nápovědu\n" +
+                "inventory - Zobrazí obsah inventáře\n" +
+                "pickup - Sebere předmět\n" +
+                "putdown - Položí předmět\n" +
+                "talk - Umožňuje mluvit s postavou";
     }
 
     @Override
