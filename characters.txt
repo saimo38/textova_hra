@@ -1,2 +1,3 @@
 7,Bratr Marcus,mnich
-3,Sir Alric,strážce
+3,Strážce,strážce
+5,Sir Alric,strážce

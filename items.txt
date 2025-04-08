@@ -2,3 +2,6 @@
 1,Železný hřebík,Lze použít k vypáčení zámku nebo jako improvizovanou zbraň
 7,Měšec zlaťáků,Lze použít k podplacení strážců
 2,Pochodeň,Slouží k osvětlení okolí
+5,Klíče,Odemykají všechny cely
+1,Okovy,Lze je využít k omezení stráží nebo k jiným improvizovaným účelům
+2,Dýka,Lze použít jako zbraň nebo k odstranění překážek

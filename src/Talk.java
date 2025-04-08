@@ -12,6 +12,7 @@ public class Talk implements Command {
 
     /**
      * Příkaz talk umožňuje uživateli mluvit s postavami.
+     *
      * @return vrátí informaci, jestli příkaz bylo možné uskutečnit
      */
     @Override
@@ -32,22 +33,17 @@ public class Talk implements Command {
         try {
             int input = sc.nextInt() - 1;
 
-            if (input >= 0 && input < characters.size()) {Inventory inventory = player.getInventory();
-                Item requiredItem = null;
-                for (Item item : inventory.getItems()) {
-                    if (item.getName().equalsIgnoreCase("Písmo svaté")) {
-                        requiredItem = item;
-                        break;
-                    }
-                }
+            if (input >= 0 && input < characters.size()) {
+                Charakter selectedChar = characters.get(input);
+                String charName = selectedChar.getName().toLowerCase();
 
-                if (requiredItem != null) {
-                    Item rewardItem = new Item("Ostrý kámen", "Kámen, který lze použít jako zbraň nebo k odstranění překážky");
-                    inventory.getItems().remove(requiredItem);
-                    player.getInventory().addItem(rewardItem);
-                    return "Mnich ti dal na oplátku ostrý kámen";
-                } else {
-                    return "Nemáš Písmo svaté, a tak se s tebou mnich nechce bavit";
+                switch (charName) {
+                    case "bratr marcus":
+                        return interactWithMonk();
+                    case "strážce":
+                        return interactWithGuard();
+                    default:
+                        return selectedChar.getName() + " s tebou zatím nechce mluvit.";
                 }
             } else {
                 return "Neplatný výběr.";
@@ -55,6 +51,38 @@ public class Talk implements Command {
         } catch (Exception e) {
             return "Neplatný vstup.";
         }
+    }
+
+    /**
+     * Umožňuje interakci s mnichem.
+     * @return vrátí výsledek rozhovoru s mnichem.
+     */
+    private String interactWithMonk() {
+        Inventory inventory = player.getInventory();
+        Item requiredItem = null;
+        for (Item item : inventory.getItems()) {
+            if (item.getName().equalsIgnoreCase("Písmo svaté")) {
+                requiredItem = item;
+                break;
+            }
+        }
+
+        if (requiredItem != null) {
+            Item rewardItem = new Item("Ostrý kámen", "Kámen, který lze použít jako zbraň nebo k odstranění překážky");
+            inventory.getItems().remove(requiredItem);
+            inventory.addItem(rewardItem);
+            return "Mnich ti poděkoval za Písmo svaté a dal ti ostrý kámen.";
+        } else {
+            return "Nemáš Písmo svaté, a tak se s tebou mnich nechce bavit.";
+        }
+    }
+
+    /**
+     * Umožňuje interakci se strážcem.
+     * @return vrací výsledek rozhovoru se strážcem.
+     */
+    private String interactWithGuard() {
+        return "Strážce tě varuje, abys nedělal žádné hlouposti.";
     }
 
     @Override
